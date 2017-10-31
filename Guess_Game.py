@@ -1,13 +1,22 @@
 #!/usr/bin/evn python
 # -*- coding: utf-8 -*-
+import random
 
-secret = 4
 
-while True != secret:
-  guess = int(raw_input("Guess the secret number (between 1 and 30): "))
+def main():
+    secret = random.randint(1, 30)
 
-  if guess == secret:
-      print "You guessed it - congratulations! It is number 4 :)"
-      break
-  else:
-      print "Sorry, your guess is not correct... Secret number is not " +str(guess)
+    while True:
+        guess = int(raw_input("Guess the secret number (between 1 and 30): "))
+
+        if guess == secret:
+            print "You guessed it - congratulations! It is number %s :)" % secret
+            break
+        elif guess > secret:
+            print "Sorry, your guess is too high... Please try again."
+        elif guess < secret:
+            print "Sorry, your guess is too low... Please try again."
+
+
+if __name__ == '__main__':
+    main()
